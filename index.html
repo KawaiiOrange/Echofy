@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TurboSpot</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <main class="portfolio-container" id="portfolioContainer">
+      <h1 class="sr-only">TurboSpot</h1>
+      <ul class="project-list" id="projectList"></ul>
+    </main>
+
+    <div class="background-image" id="backgroundImage" role="img" aria-hidden="true"></div>
+
+    <aside class="corner-elements">
+      <div class="corner-item top-left">
+        <div class="corner-square" aria-hidden="true"></div>
+      </div>
+      <nav class="corner-item top-right">
+        <a href="#music">Música</a> |
+        <a href="#playlist">Playlist</a> |
+        <a href="https://github.com" target="_blank">GitHub</a>
+      </nav>
+      <div class="corner-item bottom-left">TurboSpot v1.0</div>
+      <time class="corner-item bottom-right" id="currentTime">00:00:00</time>
+    </aside>
+
+    <!-- Modal: Track -->
+    <div id="modalMusic" class="modal" style="display:none;">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar">&times;</button>
+        <div class="modal-header">
+          <div class="modal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          </div>
+          <span>Download Track</span>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" id="trackLink" placeholder="Link ou ID da música (Spotify)">
+          </div>
+          <button class="btn-primary full" onclick="searchTrack()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Pesquisar
+          </button>
+          <div id="musicPreview" class="preview-area"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Playlist -->
+    <div id="modalPlaylist" class="modal" style="display:none;">
+      <div class="modal-content">
+        <button class="close" aria-label="Fechar">&times;</button>
+        <div class="modal-header">
+          <div class="modal-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20" height="20"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1"/><circle cx="3" cy="12" r="1"/><circle cx="3" cy="18" r="1"/></svg>
+          </div>
+          <span>Download Playlist</span>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <input type="text" id="playlistLink" placeholder="Link da playlist (Spotify)">
+          </div>
+          <div class="btn-row">
+            <button class="btn-secondary btn-see full" onclick="searchPlaylist()">Ver conteúdo</button>
+            <button class="btn-primary btn-download full" onclick="downloadPlaylist()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Descarregar
+            </button>
+          </div>
+          <div id="playlistTracks" class="tracks-list"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Music Player (bottom-right corner) -->
+    <div id="musicPlayer" class="music-player">
+      <button class="player-close" id="playerClose" aria-label="Fechar player">&times;</button>
+
+      <div class="player-cover-wrap">
+        <div class="player-cover" id="playerCover"></div>
+        <div class="player-cover-ring"></div>
+        <div class="player-cover-center"></div>
+      </div>
+
+      <div class="player-info">
+        <p class="player-title" id="playerTitle">Nenhuma faixa</p>
+        <p class="player-artist" id="playerArtist">—</p>
+      </div>
+
+      <div class="player-progress-area">
+        <span class="player-time" id="playerCurrentTime">0:00</span>
+        <div class="player-progress-track" id="playerProgressTrack">
+          <div class="player-progress-fill" id="playerProgressFill"></div>
+          <div class="player-thumb" id="playerThumb"></div>
+        </div>
+        <span class="player-time" id="playerDuration">0:00</span>
+      </div>
+
+      <div class="player-controls">
+        <div class="player-vol">
+          <span class="player-vol-icon" id="playerVolumeIcon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polygon points="11,5 6,9 2,9 2,15 6,15 11,19"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </span>
+          <input type="range" id="playerVolume" min="0" max="100" value="80" class="vol-slider">
+        </div>
+
+        <button class="player-play-btn" id="playerPlayBtn" aria-label="Play/Pause">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><polygon points="5,3 19,12 5,21"/></svg>
+        </button>
+
+        <div class="player-eq">
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+          <span class="eq-bar"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
