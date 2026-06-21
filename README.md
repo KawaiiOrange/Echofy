@@ -1,6 +1,7 @@
 # 🚀 Downtify (Frontend) — forked proxy UI
 
-*Downtify* <img width="1919" height="875" alt="brave_screenshot_localhost" src="https://github.com/user-attachments/assets/04318af9-484e-4720-abbb-eed9261bdf52" />
+*Downtify* <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7cd717e7-bfd8-4b98-b8be-9c04d4e0b490" />
+
 
 
 > Downtify is the graphical/automation piece (frontend + server-side automation) of a Spotidown-based downloader. This repository is a fork of the original Spotidown project — **this API is a fork**.
