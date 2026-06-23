@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   echofy:
     build: .
@@ -7,8 +6,6 @@ services:
     restart: unless-stopped
     ports:
       - "3045:3045"
-    env_file:
-      - .env
     volumes:
       - ./downloads:/app/downloads
     environment:
