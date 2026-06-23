@@ -43,7 +43,7 @@ This repository represents the graphical/automation portion (the UI + automation
 version: '3'
 services:
   echofy:
-    image: kwayorange/echofy:latest
+    image: kwayorange/echofy:v0.2
     container_name: echofy
     restart: unless-stopped
     ports:
