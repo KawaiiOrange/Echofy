@@ -159,7 +159,7 @@ version: '3'
 services:
   # Home PC
   echofy-home:
-    image: kwayorange/echofy:latest
+    image: kwayorange/echofy:v0.2
     container_name: echofy-home
     restart: unless-stopped
     ports:
