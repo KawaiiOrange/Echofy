@@ -1,4 +1,4 @@
-# 🚀 Echofy (Frontend) — forked proxy UI
+# Echofy (Frontend) — forked proxy UI
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/535de729-dd88-4b39-a575-ddd8fccf09e4" />
 
@@ -6,11 +6,11 @@
 
 > Echofy is the graphical/automation piece (frontend + server-side automation) of a Spotidown-based downloader. This repository is a fork of the original Spotidown project — **this API is a fork**.
 
-⚠️ **Warning:** Echofy automates web scraping and downloads MP3 files. Downloading copyrighted material may be illegal in your jurisdiction. Use responsibly and at your own risk.
+**Warning:** Echofy automates web scraping and downloads MP3 files. Downloading copyrighted material may be illegal in your jurisdiction. Use responsibly and at your own risk.
 
 ---
 
-## ✨ Credits (original authors first)
+##  Credits (original authors first)
 
 - Original Spotidown authors / upstream project (the code this repo was forked from)
 - spotidown.app — original frontend that this project automates
@@ -23,7 +23,7 @@ Libraries and projects used:
 
 ---
 
-## 🎯 What Echofy is
+## What Echofy is
 
 Echofy is a Bun/TypeScript-based proxy UI and automation layer that controls a headless Chromium instance (via Puppeteer) to drive the Spotidown frontend and resolve direct MP3 download URLs for Spotify tracks. It provides a small Express API for programmatic access and server-side playlist downloads.
 
@@ -31,7 +31,7 @@ This repository represents the graphical/automation portion (the UI + automation
 
 ---
 
-## 🚀 Quick Start (Docker Hub - Recommended)
+##  Quick Start (Docker Hub - Recommended)
 
 ### CasaOS
 
@@ -80,7 +80,7 @@ docker run -d -p 3045:3045 \
 
 ---
 
-## 🧰 Prerequisites
+##  Prerequisites
 
 Choose one:
 
@@ -97,9 +97,9 @@ Notes about Spotify integration:
 
 ---
 
-## ▶️ How to run
+## How to run
 
-### 🐳 Option A: With Docker (Recommended - Works Everywhere)
+### Option A: With Docker (Recommended - Works Everywhere)
 
 ```bash
 git clone https://github.com/KawaiiOrange/Echofy.git
@@ -128,7 +128,7 @@ docker system prune -a --volumes -f
 
 ---
 
-### 💻 Option B: Without Docker (Local)
+### Option B: Without Docker (Local)
 
 #### 1. Install dependencies
 
@@ -150,7 +150,7 @@ Navigate to: **http://localhost:3045**
 
 ---
 
-## 🏠 Multiple Containers (Home + Other Systems)
+##  Multiple Containers (Home + Other Systems)
 
 Want to run Echofy on different machines with Docker? Use this `docker-compose.yml`:
 
@@ -197,7 +197,7 @@ docker-compose up -d
 
 ---
 
-## 📁 File Structure
+##  File Structure
 
 ```
 Echofy/
@@ -235,7 +235,7 @@ Echofy/
 
 ---
 
-## 🔁 What changed from the original Spotidown (API changes in this fork)
+##  What changed from the original Spotidown (API changes in this fork)
 
 - Project renamed to **Echofy** and reorganized as a Bun/TypeScript frontend + server automation piece.
 - Exposed an Express HTTP API to allow programmatic downloads and integrations.
@@ -250,7 +250,7 @@ Echofy/
 
 ---
 
-## ⚠️ Known issues & limitations
+##  Known issues & limitations
 
 1. **Spotify credentials are optional** — without them metadata and ISRC search may be limited, but downloads still work.
 2. **Puppeteer / Chromium launch failures** — install Chromium locally or use Docker.
@@ -284,7 +284,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ---
 
-## 🎨 Using the Graphical UI
+##  Using the Graphical UI
 
 ### Start the server
 
@@ -329,7 +329,7 @@ If not provided, Echofy falls back to embed scraping.
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 - **Downloads failing?** Check server logs for errors (grecaptcha, Spotidown changes, etc)
 - **Chromium not found?** Install it: `sudo apt-get install chromium` (Linux) or use Docker
@@ -339,7 +339,7 @@ If not provided, Echofy falls back to embed scraping.
 
 ---
 
-## 🎨 Tech Stack
+## Tech Stack
 
 - **Backend**: TypeScript + Express + Bun
 - **Frontend**: HTML + CSS + Vanilla JS + GSAP
@@ -349,10 +349,10 @@ If not provided, Echofy falls back to embed scraping.
 
 ---
 
-## 📝 License
+##  License
 
 MIT
 
 ---
 
-**Made with ❤️ for music lovers**
+**Made with Love for music lovers**
